@@ -1,0 +1,66 @@
+<!-- With your table buddy, use d3 to create a webpage that displays information about the federal budget form 2 different years.
+This website has pretty good data on federal budgets going back to the 1900s: http://federal-budget.insidegov.com
+Example d3 code has been posted on the notes and code page: https://github.com/stuy-softdev/notes-and-code
+This will be due Tuesday in the AM
+-->
+
+<!--With your table buddy, use d3 to create a webpage that displays information about the federal budget form 2 different years.
+This website has pretty good data on federal budgets going back to the 1900s: http://federal-budget.insidegov.com
+Example d3 code has been posted on the notes and code page: https://github.com/stuy-softdev/notes-and-code
+This will be due Tuesday in the AM -->
+
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"> </script>
+
+		<style>
+			.chart div {
+				font:15px sans-serif;
+				background-color:pink;
+				text-align:right;
+				padding:3px;
+				margin:1px;
+				color:white;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h2> 1984 Stats </h2>
+		<div class="chart" id="dynamic">
+		</div>
+		
+		<h2> 2008 Stats </h2>
+		<div class="chart" id="dynamic2">
+		</div>
+
+		<script>
+			var dyn = d3.select("#dynamic");
+			var info = [4,8,15,16,23,42];
+			dyn.selectAll("div")
+			.data(info)
+			.enter()//u wud need enter again if ur data set changed or changed size
+			.append("div")
+			.style("width", function(d) { return d*10 + "px"})
+			.text("olivia");
+
+
+
+			var dyn2 = d3.select("#dynamic2");
+			var info2 = [4,8,15,16,23,42];
+			dyn2.selectAll("div")
+			.data(info2)
+			.enter()//u wud need enter again if ur data set changed or changed size
+			.append("div")
+			.style("width", function(d) { return d*10 + "px"})
+			.text("olivia");
+		</script>
+
+	</body>
+
+
+
+</html>
