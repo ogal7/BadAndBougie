@@ -18,7 +18,7 @@ This will be due Tuesday in the AM -->
 
 		<style>
 			.chart div {
-				font:15px sans-serif;
+				font:10px sans-serif;
 				background-color:pink;
 				text-align:right;
 				padding:3px;
@@ -31,6 +31,10 @@ This will be due Tuesday in the AM -->
 	<body>
 		<h2> 1984 Stats </h2>
 		<div class="chart" id="dynamic">
+			<div id="og"> </div>
+			<div id="og"> </div>
+			<div id="og"> </div>
+			<div id="og"> </div>
 		</div>
 		
 		<h2> 2008 Stats </h2>
@@ -39,24 +43,20 @@ This will be due Tuesday in the AM -->
 
 		<script>
 			var dyn = d3.select("#dynamic");
-			var info = [302,255,-3.1,16,23,42];
+			var info = [
+						[ '3.02',"Total spending (trillions) - 3.02"],
+						[ '2.55', "Total revenues (trillions) - 2.55"],
+						[ '3.1','Total Deficit as % of GDP - -3.1%'],
+						[ '14.9',"GDP (trillions) - 14.9"]
+					]
 			dyn.selectAll("div")
 			.data(info)
-			.enter()//u wud need enter again if ur data set changed or changed size
-			.append("div")
-			.style("width", function(d) { return d*10 + "px"})
-			.text("olivia");
+			//u wud need enter again if ur data set changed or changed size
+			//.append("div")
+			.style("width", function(d) { return parseInt(d[0]) *80 + "px"})
+			.text(function(d) { return d[1]})
+			.enter();
 
-
-
-			var dyn2 = d3.select("#dynamic2");
-			var info2 = [4,8,15,16,23,42];
-			dyn2.selectAll("div")
-			.data(info2)
-			.enter()//u wud need enter again if ur data set changed or changed size
-			.append("div")
-			.style("width", function(d) { return d*10 + "px"})
-			.text("olivia");
 		</script>
 
 	</body>
