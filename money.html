@@ -29,7 +29,7 @@ This will be due Tuesday in the AM -->
 	</head>
 
 	<body>
-		<h2> 1984 Stats </h2>
+		<h2> 2008 Stats </h2>
 		<div class="chart" id="dynamic">
 			<div id="og"> </div>
 			<div id="og"> </div>
@@ -37,8 +37,12 @@ This will be due Tuesday in the AM -->
 			<div id="og"> </div>
 		</div>
 		
-		<h2> 2008 Stats </h2>
+		<h2> 1984 Stats </h2>
 		<div class="chart" id="dynamic2">
+			<div id="og"> </div>
+			<div id="og"> </div>
+			<div id="og"> </div>
+			<div id="og"> </div>
 		</div>
 
 		<script>
@@ -53,6 +57,19 @@ This will be due Tuesday in the AM -->
 			.data(info)
 			//u wud need enter again if ur data set changed or changed size
 			//.append("div")
+			.style("width", function(d) { return parseInt(d[0]) *80 + "px"})
+			.text(function(d) { return d[1]})
+			.enter();
+
+			var dyn2 = d3.select("#dynamic2");
+			var info2 = [
+						[ '1.54',"Total spending (trillions) - 1.54"],
+						[ '1.21', "Total revenues (trillions) - 1.21"],
+						[ '4.7','Total Deficit as % of GDP - -4.7%'],
+						[ '7.17',"GDP (trillions) - 7.17"]
+					]
+			dyn2.selectAll("div")
+			.data(info2)
 			.style("width", function(d) { return parseInt(d[0]) *80 + "px"})
 			.text(function(d) { return d[1]})
 			.enter();
